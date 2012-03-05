@@ -1,0 +1,95 @@
+{% extends "blog/base.html" %}
+  
+{% block content %} 
+      {% for post in posts %}
+          {% ifequal post.post_name 'photo' %}
+              <article class="clearfix post format-image">
+                <div class="format-ribbon"></div><!-- post format indication ribbon -->
+                <figure>
+                  <a href="/photos/{{ post.pk }}"><img src="/static/_images/assets/entry-4-col-1.jpg" width="360" height="257" alt="Summer Time Fun"></a>
+                  <div class="preview-large-hover">
+                    <a class="large-image" href="/static/_images/assets/entry-1-large.jpg"></a>
+                  </div>
+                </figure>
+                <header>
+                  <h3 class="post-title"><a href="/photos/{{ post.pk }}">{{ post.title }}</a></h3>
+                </header>
+                <div class="entry">
+                  <p>{{ post.summary }}</p>
+                </div>
+                <footer class="meta">
+                  <p>{{ post.pub_date|date:"m.d.Y" }} |  <a class="comments" href="#">13</a>  |  Tags : <a href="#">HTML5</a>, <a href="#">CSS3</a>, <a href="#">jQuery</a>, <a href="#">Usability</a></p>
+                </footer>
+              </article>
+          {% endifequal %}
+
+          {% ifequal post.post_name 'news' %}
+              <article class="clearfix post format-standard">
+                <div class="format-ribbon"></div><!-- post format indication ribbon -->
+                <header>
+                  <h3 class="post-title"><a href="/news/{{ post.pk }}">{{ post.title }}</a></h3>
+                </header>
+                <div class="entry">
+                  <p>{{ post.summary }}</p>
+                </div>
+                <footer class="meta">
+                  <p>{{ post.pub_date|date:"m.d.Y" }} |  <a class="comments" href="#">21</a>  |  Tags : <a href="#">HTML5</a>, <a href="#">CSS3</a>, <a href="#">jQuery</a>, <a href="#">Usability</a></p>
+                </footer>
+              </article>
+          {% endifequal %}
+
+          {% ifequal post.post_name 'video' %}
+              <article class="clearfix post format-video">
+                <div class="format-ribbon"></div><!-- post format indication ribbon -->
+                <figure>
+                  <iframe src="http://player.vimeo.com/video/24320443?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="360" height="257"></iframe>
+                </figure>
+                <header>
+                  <h3 class="post-title"><a href="/videos/{{ post.pk }}">{{ post.title }}</a></h3>
+                </header>
+                <div class="entry">
+                  <p>{{ post.summary }}</p>
+                </div>
+                <footer class="meta">
+                  <p>{{ post.pub_date|date:"m.d.Y" }} |  <a class="comments" href="#">10</a>  |  Tags : <a href="#">HTML5</a>, <a href="#">CSS3</a>, <a href="#">jQuery</a>, <a href="#">Usability</a></p>
+                </footer>
+              </article>
+          {% endifequal %}
+
+          {% ifequal post.post_type 'quote' %}
+              <article class="clearfix post format-quote">
+                <div class="format-ribbon"></div><!-- post format indication ribbon -->
+                <figure>
+                  <a href="/quotes/{{ post.pk }}"><img src="/static/_images/assets/entry-4-col-4.jpg" width="360" height="257" alt="Through Someone Elses Eyes"></a>
+                </figure>
+                <header>
+                  <h3 class="post-title"><a href="/quotes/{{ post.pk }}">{{ post.title }}</a></h3>
+                </header>
+                <div class="entry">
+                  <p>{{ post.summary }}</p>
+                </div>
+                <footer class="meta">
+                  <p>{{ post.pub_date|date:"m.d.Y" }}  |  <a class="comments" href="#">31</a>  |  Tags : <a href="#">HTML5</a>, <a href="#">CSS3</a>, <a href="#">jQuery</a>, <a href="#">Usability</a></p>
+                </footer>
+              </article>
+          {% endifequal %}
+    {% endfor %} 
+    </div><!-- .grid -->
+    <div class="cl"></div>
+    
+    <!-- Pagination -->
+    <div class="pagination">
+      <ul>
+        <li><a href="#" class="prev">&lsaquo;</a></li>
+        <li><span class="page current">1</span></li>
+        <li><a href="#" title="2" class="page">2</a></li>
+        <li><a href="#" title="3" class="page">3</a></li>
+        <li><a href="#" title="4" class="page">4</a></li>
+        <li><span class="gap">[...]</span></li>
+        <li><a href="#" title="39" class="page">8</a></li>
+        <li><a href="#" class="next">&rsaquo;</a></li>
+      </ul>
+    </div>
+    <!-- /Pagination -->
+
+{% endblock %}

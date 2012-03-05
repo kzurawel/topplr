@@ -1,0 +1,151 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Hipstar - Home</title>
+  
+  <meta name="description" content="">
+  <meta name="google-site-verification" content="">
+  <meta name="author" content="Christopher McClellan">
+  
+  <link rel="shortcut icon" href="/static/_images/favicon.ico">
+
+  <link rel="stylesheet" href="/static/style.css">
+
+  <script src="/static/_js/libs/modernizr-2.0.min.js"></script>
+  <script src="/static/_js/libs/respond.min.js"></script>
+  
+</head>
+
+<body class="light">
+
+<!-- Left Column (Header) -->
+  <header id="header">
+    
+  <!-- Logo -->
+    <h1>
+      <a href="/">Topplr</a>
+    </h1>
+  <!-- /Logo -->
+  
+  <!-- Navigation -->
+    <nav id="nav-primary">
+      <ul>
+        <li class="current"><a href="/">Home / All Posts</a></li>
+        <li><a href="/photos">Photos</a></li>
+        <li><a href="/videos">Videos</a></li>
+        <li><a href="/quotes">Quotes</a></li>
+        <li><a href="/news">News</a></li>
+      </ul>
+    </nav>
+  <!-- /Navigation -->
+  
+  </header>
+<!-- /Left Column (Header) -->
+
+<!-- Right Column -->
+  <div id="main" role="main">
+
+  <!-- Call to action -->
+    <header class="clearfix">
+      <div id="call-to-action"><a href="#"><span>Available</span>Hire Me</a></div>
+      <h2 id="tagline">A simple blog that tugs at your<span class="heart"></span>strings</h2>
+      <ul class="breadcrumbs">
+        <li>You are here:</li>
+        <li>Home</li>
+      </ul>
+    </header>
+  <!-- /Call to action -->
+
+  <!-- Content Area -->
+  <div id="content-area" class="container grid grid-large clearfix">
+
+    {% block content %}
+    {% endblock %}
+
+        
+  <!-- /Content Area -->
+  </div>
+<!-- /Right Column -->
+
+<!-- Footer -->
+  <footer id="footer">
+    <div id="social">
+      <a id="facebook" href="#" title="Facebook"></a>
+      <a id="twitter" href="#" title="Twitter"></a>
+      <a id="forrst" href="#" title="Forrst"></a>
+      <a id="dribbble" href="#" title="Dribbble"></a>
+    </div><!-- #social -->
+    
+    <div id="search">
+      <form method="post" action="#">
+        <input type="text" value="" placeholder="Search" name="s" id="query">
+      </form>
+    </div><!-- #search -->
+    
+    <div class="source-org vcard copyright">
+      <p>&copy; 2011 Hipstar</p>
+    </div><!-- .copyright -->
+  </footer>
+<!-- /Footer -->
+
+<!-- Large image viewer -->
+  <div id="img-preview-controls">
+    <a class="" id="img-title" href="#"></a>
+    <a id="img-view-post" href="#">View</a>
+    <a id="img-close" href="#">Close</a>
+  </div>
+<!-- /Large image viewer -->
+
+<div class="back-to-top"><a href="#">Up</a></div>
+
+<!-- Javascript (in footer for a reason) -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/static/_js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+<script src="/static/_js/libs/jquery.hoverIntent.minified.js"></script>
+<script src="/static/_js/libs/jquery.nivo.slider.pack.js"></script>
+<script src="/static/_js/libs/jquery.animate-enhanced.js"></script>
+<script src="/static/_js/libs/jquery.ez-bg-resize.js"></script>
+<script src="/static/_js/libs/jquery.imagesloaded.js"></script>
+<script src="/static/_js/libs/jquery.masonry.min.js"></script>
+<script src="/static/_js/libs/jquery.cycle.all.js"></script>
+<script src="/static/_js/libs/jquery.cookie.js"></script>
+<script src="/static/_js/libs/jquery.color.js"></script>
+<script src="/static/_js/script.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22981676-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<!-- Dont forget Google Tracking
+<script>
+  var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+-->
+
+<!--[if lt IE 7 ]>
+  <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+  <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+
+</body>
+</html>
