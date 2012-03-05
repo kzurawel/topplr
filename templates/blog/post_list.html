@@ -18,7 +18,7 @@
                   <p>{{ post.summary|safe }}</p>
                 </div>
                 <footer class="meta">
-                  <p>{{ post.pub_date|date:"m.d.Y" }} |  <a class="comments" href="#">13</a>  |  Tags : <a href="#">HTML5</a>, <a href="#">CSS3</a>, <a href="#">jQuery</a>, <a href="#">Usability</a></p>
+                  <p>{{ post.pub_date|date:"m.d.Y" }} | Tags : {% for tag in post.tags.all %}<a href="/tag/{{ tag.slug }}">{{ tag.title }}</a> {% endfor %}</p>
                 </footer>
               </article>
           {% endifequal %}
@@ -33,7 +33,7 @@
                   <p>{{ post.summary|safe }}</p>
                 </div>
                 <footer class="meta">
-                  <p>{{ post.pub_date|date:"m.d.Y" }} |  <a class="comments" href="#">21</a>  |  Tags : <a href="#">HTML5</a>, <a href="#">CSS3</a>, <a href="#">jQuery</a>, <a href="#">Usability</a></p>
+                  <p>{{ post.pub_date|date:"m.d.Y" }} | Tags : {% for tag in post.tags.all %}<a href="/tag/{{ tag.slug }}">{{ tag.title }}</a> {% endfor %}</p>
                 </footer>
               </article>
           {% endifequal %}
@@ -51,7 +51,7 @@
                   <p>{{ post.summary|safe }}</p>
                 </div>
                 <footer class="meta">
-                  <p>{{ post.pub_date|date:"m.d.Y" }} |  Tags : {% for tag in post.tags.all %}<a href="/tag/{{ tag.slug }}">{{ tag.title }}</a> {% endfor %}</p>
+                  <p>{{ post.pub_date|date:"m.d.Y" }} | Tags : {% for tag in post.tags.all %}<a href="/tag/{{ tag.slug }}">{{ tag.title }}</a> {% endfor %}</p>
                 </footer>
               </article>
           {% endifequal %}
