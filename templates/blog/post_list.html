@@ -1,14 +1,25 @@
 {% extends "blog/base.html" %}
-  
+
+{% load thumbnail %}
 {% block content %} 
+
+<!-- Content Area -->
+  <div id="content-area" class="container grid grid-large clearfix">
+
       {% for post in posts %}
-          {% ifequal post.post_type 'photo' %}
+          {% ifequal post.post_type 'image' %}
               <article class="clearfix post format-image">
                 <div class="format-ribbon"></div><!-- post format indication ribbon -->
                 <figure>
-                  <a href="/photos/{{ post.pk }}"><img src="/static/_images/assets/entry-4-col-1.jpg" width="360" height="257" alt="Summer Time Fun"></a>
+                  <a href="/photos/{{ post.pk }}">
+                    {% thumbnail post.photo "360x257" crop="center" as im %}
+                      <img src="{{ im.url }}" width="360" height="257" alt="">
+                    {% endthumbnail %}
+                  </a>
                   <div class="preview-large-hover">
-                    <a class="large-image" href="/static/_images/assets/entry-1-large.jpg"></a>
+                    {% thumbnail post.photo "2000x2000" upscale=False as im %}
+                      <a class="large-image" href="{{ im.url }}"></a>
+                    {% endthumbnail %}
                   </div>
                 </figure>
                 <header>
@@ -23,7 +34,7 @@
               </article>
           {% endifequal %}
 
-          {% ifequal post.post_type 'news' %}
+          {% ifequal post.post_type 'standard' %}
               <article class="clearfix post format-standard">
                 <div class="format-ribbon"></div><!-- post format indication ribbon -->
                 <header>
@@ -70,8 +81,12 @@
                 </footer>
               </article>
           {% endifequal %}
-    {% endfor %} 
+      {% endfor %}
+     
     </div><!-- .grid -->
     <div class="cl"></div>
-    
+
+    <!-- /Content Area -->
+  </div>
+
 {% endblock %}

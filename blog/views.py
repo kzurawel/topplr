@@ -7,3 +7,6 @@ class PostListView(ListView):
     context_object_name = "posts"
     queryset = Post.objects.order_by('-pub_date').select_subclasses()
 
+class PostView(DetailView):
+    context_object_name = "post"
+

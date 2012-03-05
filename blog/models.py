@@ -27,7 +27,7 @@ class NewsPost(Post):
         verbose_name = "News post"
 
     def post_type(self):
-        return "news"
+        return "standard"
 
 class VideoPost(Post):
     vid_caption = models.CharField(max_length=255)
@@ -48,7 +48,7 @@ class PhotoPost(Post):
         verbose_name = "Photo post"
 
     def post_type(self):
-        return "photo"
+        return "image"
 
 class QuotePost(Post):
     quote_author = models.CharField(max_length=255)

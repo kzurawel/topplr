@@ -1,0 +1,87 @@
+{% extends "blog/base.html" %}
+{% load thumbnail %}
+{% block content %}
+
+  <div id="content-area" class="container clearfix">
+
+    <div class="container-12">
+      
+        <div class="col-8-wrap clearfix">
+      
+          <article class="clearfix post format-{{ post.post_type }}">
+          
+            <div class="format-ribbon"></div><!-- post format indication ribbon -->
+            
+            <header class="col-8">
+              <h3>{{ post.title }}</h3>
+            </header>
+            
+            <div class="cl"></div>
+            
+            <div class="col-8 slider-wrapper">
+              <div class="ribbon"></div>
+              {% ifequal post.post_type 'image' %}
+              <div id="slider">
+                {% thumbnail post.photo "620x400" crop="center" as im %}
+                  <img src="{{ im.url }}" width="620" height="400" alt="" title="{{ post.photo_caption }}">
+                {% endthumbnail %}
+              </div>
+              {% endifequal %}
+              {% ifequal post.post_type 'video' %}
+              <div id="slider">
+                <iframe src="{{ post.video_url }}" width="620" height="300"></iframe>
+              </div>
+              {% endifequal %}
+            </div>
+            
+            <div class="cl"></div>
+            
+            <section class="col-8">
+              {{ post.main_content|safe }}
+              {% ifequal post.post_type 'quote' %}
+                -<em>{{ post.quote_author }}</em><br />
+                {% if post.quote_source %}
+                  <em>Source: {{ post.quote_source }}</em>
+                {% endif %}
+              {% endifequal %}
+              {% ifequal post.post_type 'image' %}
+                {% if post.photo_location %}
+                  <strong>Photo location:</strong> {{ post.photo_location }}
+                {% endif %}
+              {% endifequal %}
+            </section>
+            
+            <div class="cl"></div>
+              
+            <footer class="meta col-8">
+              <p>{{ post.pub_date|date:"m.d.Y" }} | Tags : {% for tag in post.tags.all %}<a href="/tag/{{ tag.slug }}">{{ tag.title }}</a> {% endfor %}</p>
+            </footer>
+            
+            <hr class="col-8" />
+            
+                        
+          </article>
+      
+          <div class="cl"></div>
+          
+        </div><!-- .col-8-wrap -->
+        
+        <!-- Side Bar -->
+          <aside class="col-4">
+            <div class="widget widget-style-3">
+              <h4>Tags</h4>
+              <ul>
+                {% for tag in post.tags.all %}
+                  <li><a href="/tag/{{ tag.slug }}">{{ tag.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div><!-- .widget .widget-style-3 -->
+            
+          </aside>
+        <!-- / Side Bar -->
+        
+      </div><!-- .container-12 -->
+      
+    </div><!-- .container .list -->
+  </div>
+{% endblock %}
