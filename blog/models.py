@@ -4,6 +4,7 @@ from model_utils.managers import InheritanceManager
 # Create your models here.
 class Tag(models.Model):
     title = models.CharField(max_length=255)
+    slug = models.CharField(max_length=255)
 
     def __unicode__(self):
         return self.title
@@ -30,7 +31,7 @@ class NewsPost(Post):
 
 class VideoPost(Post):
     vid_caption = models.CharField(max_length=255)
-    video = models.FileField(upload_to="videos")
+    video_url = models.URLField("Video URL")
 
     class Meta:
         verbose_name = "Video post"
